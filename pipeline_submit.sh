@@ -54,7 +54,7 @@ float {
     address     = '${address}'
     username    = '${username}'
     password    = '${password}'
-    commonExtra = ' --withRoot --dataVolume jfs://${jfs_private_ip}:6868/1:/mnt/jfs --dataVolume [size=120]:/mnt/jfs_cache'
+    commonExtra = ' --withRoot --dataVolume jfs://${jfs_private_ip}:6868/1:/mnt/jfs'
     timefactor  = 5
 }
 
