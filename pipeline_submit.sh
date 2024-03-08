@@ -43,8 +43,12 @@ process {
     executor      = 'float'
     errorStrategy = 'retry'
     withName: "QUALIMAP_RNASEQ" {
-     extra =' --dataVolume [opts=" --cache-dir /mnt/jfs_cache -o writeback_cache"]jfs://${jfs_private_ip}:6868/1:/mnt/jfs'
+     extra = ' --dataVolume [opts=" --cache-dir /mnt/jfs_cache -o writeback_cache"]jfs://${jfs_private_ip}:6868/1:/mnt/jfs'
    }
+    withName: 'STAR_ALIGN' {
+        cpus    = 16
+        memory  = '28.GB'
+    }
 }
 
 workDir   = '${workDir}'
@@ -54,7 +58,7 @@ float {
     address     = '${address}'
     username    = '${username}'
     password    = '${password}'
-    commonExtra = ' --withRoot --dataVolume jfs://${jfs_private_ip}:6868/1:/mnt/jfs'
+    commonExtra = ' --withRoot --dataVolume jfs://${jfs_private_ip}:6868/1:/mnt/jfs --vmPolicy [spotOnly=true,retryLimit=10,retryInterval=300s]'
     timefactor  = 5
 }
 
@@ -83,5 +87,5 @@ nextflow run nf-core/rnaseq \
 -r 3.14.0 \
 -c mmc.config \
 --input jrollins-2014-samplesheet.csv \
---outdir 's3://nextflow-work-dir-public/jrollins_rnaseq_output'
+--outdir 's3://nextflow-work-dir-public/jrollins_2014_rnaseq_output'
  
