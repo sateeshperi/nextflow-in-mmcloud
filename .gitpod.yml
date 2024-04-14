@@ -7,7 +7,11 @@ tasks:
     command: |
       wget https://mmcloud-aws-preview.memverge.com/float --no-check-certificate
       sudo mv float /usr/local/bin/
-      sudo chmod +x /usr/local/bin/float 
+      sudo chmod +x /usr/local/bin/float
+  - name: get job scripts
+    command: |
+      wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/transient_JFS.sh
+      wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/job_submit.sh
 
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
