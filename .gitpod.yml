@@ -10,8 +10,8 @@ tasks:
       sudo chmod +x /usr/local/bin/float
   - name: get job scripts
     command: |
-      wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/transient_JFS.sh
-      wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/job_submit.sh
+      wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/transient_JFS_AWS.sh
+      wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/job_submit_AWS.sh
 
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
