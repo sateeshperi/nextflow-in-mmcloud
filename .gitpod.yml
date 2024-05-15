@@ -12,6 +12,10 @@ tasks:
     command: |
       wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/transient_JFS_AWS.sh
       wget https://mmce-data.s3.amazonaws.com/juiceflow/v1/aws/job_submit_AWS.sh
+  - name: install juicefs and redis
+    command: |
+      curl -sSL https://d.juicefs.com/install | sh -
+      sudo yum install redis  
 
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
